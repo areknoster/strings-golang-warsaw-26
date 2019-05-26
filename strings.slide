@@ -1,0 +1,60 @@
+Strings in Go
+Why can we fmt.Println("Hello, 世界")? Quick overview of runes, bytes, unicode utf-8
+18:50 22 May 2019
+Tags: golang, strings, encoding, unicode, utf-8, bytes, runes
+
+Arkadiusz Noster
+Warsaw University of Technology computer science student
+arkadiusz.noster@gmail.com
+https://www.linkedin.com/in/arkadiusz-noster/
+
+* What you'll learn
+- What ASCII, unicode and UTF-8 are 
+- Encoding of Go source, strings and some tweaks with it
+.image images/gopher-learn.svg 200 _
+.caption _Gopher_ by [[https://github.com/egonelbre/gophers][Renée French]]
+
+* Text encodings standards
+
+*character* *encoding* - the mapping of numbers to glyphs (character, symbol).
+.image images/mapping.png
+*Code* *space* - a range of numerical values available for encoding characters
+*Code* *point* - a number within the codespace
+*Character* *Encoding* *Scheme* - the way we represent code point
+
+: Definitions examples
+: encoding - ASCII, unicode
+: code space - from 0 to 127
+: code point - 37
+: encoding scheme - utf-8, utf-16
+
+* Unicode
+.link https://unicode-table.com/en/
+.iframe https://unicode-table.com/en/ 1000 1000
+: over million possibilities
+: 277k code points assigned
+
+* utf-8
+.image images/utf-8-bytes.png
+.caption from [[https://en.wikipedia.org/wiki/UTF-8#Description][wikipedia]]
+
+* Golang source code must be utf-8 encoded!
+.play src/example1.go
+But
+
+ Identifiers name program entities such as variables and types.
+ An identifier is a sequence of one or more letters and digits.
+
+So no emojis in variable names 😭
+
+* Strings
+.play src/example2.go
+
+* Literals
+
+.play src/example3.go
+: Numbers
+
+* Literals #2
+.play -edit src/example4.go
+: String literal is string constant. String constant is untyped!
